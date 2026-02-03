@@ -15,7 +15,19 @@ datasource db {
 
 // Modelo de categorias 
 model Category {
-  id  Int   @id   @default(autoincrement())
-  name  String
-  slug  String
+  id       Int       @id @default(autoincrement())
+  name     String
+  slug     String
+  products Product[] //Se da a netender qie sera un arreglo de productos
+}
+
+model Product {
+  id         Int      @id @default(autoincrement())
+  name       String
+  price      Float
+  image      String
+
+  //Se hace referencia a la tabla category
+  categoryId Int //Clave foranea de category
+  category   Category @relation(fields: [categoryId], references: [id])
 }
