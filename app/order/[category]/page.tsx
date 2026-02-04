@@ -22,6 +22,7 @@ export default async function OrderPage({
 
   return (
     <>
+    <h1 className="my-5 text-3xl  font-bold">Productos</h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 items-start">
         {products.map(product =>(
           <ProductCard 
