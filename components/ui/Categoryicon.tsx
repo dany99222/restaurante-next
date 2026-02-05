@@ -12,7 +12,7 @@ export default function Categoryicon({ category }: CategoryiconProps) {
   const params = useParams<{category: string}>()
  
   return (
-    <div className={`${category.slug === params.category ? 'bg-blue-600 text-white': '' } flex items-center gap-5 w-full p-3 shadow bg-slate-200 hover:bg-blue-400 transition-colors`}>
+    <div className={`${category.slug === params.category ? 'bg-blue-600 text-white': 'bg-slate-200' } flex items-center gap-5 w-full p-3 shadow  hover:bg-blue-400 transition-colors`}>
       <div className="relative size-16 ">
         <Image 
         src={`/icon_${category.slug}.svg`}
