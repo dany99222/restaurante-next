@@ -28,7 +28,7 @@ export default function ProductDetails({ item }: ProductDetailProps) {
   return (
     <div className="bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-xl p-5 space-y-4 border border-gray-200 hover:shadow-2xl transition-shadow">
       {/* Contenedor principal: imagen y nombre/boton */}
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col lg:flex-row items-center gap-4">
         {/* Imagen */}
         <div className="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden">
           <Image
