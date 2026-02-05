@@ -12,7 +12,7 @@ interface Store {
 export const useStore = create<Store>((set, get) => ({
   order: [],
   AddToOrder: (product) => {
-    const { categoryId,  ...data } = product;
+    const { categoryId: _,  ...data } = product;
 
     //Variable temporal donde agregarmos los productos
     let order: OrderItem[] = [];
