@@ -5,6 +5,7 @@ import { Product } from "../generated/prisma/client";
 interface Store {
   order: OrderItem[];
   AddToOrder: (product: Product) => void;
+  inceaseQuantity: (id: Product["id"]) => void;
 }
 export const useStore = create<Store>((set, get) => ({
   order: [],
@@ -25,8 +26,8 @@ export const useStore = create<Store>((set, get) => ({
             }
           : item,
       );
-    } 
-    // Si no esta en el carrito 
+    }
+    // Si no esta en el carrito
     else {
       order = [
         ...get().order,
@@ -38,9 +39,22 @@ export const useStore = create<Store>((set, get) => ({
       ];
     }
 
-    // lo agregamos al state General 
+    // lo agregamos al state General
     set(() => ({
       order: order,
+    }));
+  },
+  inceaseQuantity: (id) => {
+    set((state) => ({
+      order: state.order.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+              subtotal: item.price * (item.quantity + 1),
+            }
+          : item,
+      ),
     }));
   },
 }));
