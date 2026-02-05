@@ -6,11 +6,12 @@ interface Store {
   order: OrderItem[];
   AddToOrder: (product: Product) => void;
   inceaseQuantity: (id: Product["id"]) => void;
+  decreaseQuantity: (id: Product["id"]) => void;
 }
 export const useStore = create<Store>((set, get) => ({
   order: [],
   AddToOrder: (product) => {
-    const { categoryId, image, ...data } = product;
+    const { categoryId,  ...data } = product;
 
     //Variable temporal donde agregarmos los productos
     let order: OrderItem[] = [];
@@ -44,6 +45,9 @@ export const useStore = create<Store>((set, get) => ({
       order: order,
     }));
   },
+  //La logica se puede colocar antes o despues
+  //Increanse: Logica adentro del set
+  //Decrease: Logica por fuera del set (antes del set)
   inceaseQuantity: (id) => {
     set((state) => ({
       order: state.order.map((item) =>
@@ -55,6 +59,21 @@ export const useStore = create<Store>((set, get) => ({
             }
           : item,
       ),
+    }));
+  },
+  decreaseQuantity: (id) => {
+    const order = get().order.map((item) =>
+      item.id === id
+        ? {
+            ...item,
+            quantity: item.quantity - 1,
+            subtotal: item.price * (item.quantity - 1),
+          }
+        : item,
+    );
+
+    set(() => ({
+      order: order,
     }));
   },
 }));
