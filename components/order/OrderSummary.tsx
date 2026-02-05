@@ -13,8 +13,11 @@ export default function OrderSummary() {
     () => order.reduce((total, item) => total + item.quantity * item.price, 0),
     [order],
   );
-  const handleCreateOrder = () => {
-    createOrder()
+  const handleCreateOrder = (formData : FormData) => {
+    //  De esta forma se toman los valores de un form 
+      // formData.get('name') 
+    console.log(formData.get('name'))
+    createOrder();
   };
   return (
     <aside className="md:h-screen md:overflow-y-scroll md:w-64 lg:w-96 p5">
@@ -42,6 +45,12 @@ export default function OrderSummary() {
               </span>
             </p>
             <form action={handleCreateOrder} className="w-full mt-10 space-y-5">
+              <input
+                type="text"
+                placeholder="Tu Nombre"
+                className="bg-white rounded p-2 w-full text-black"
+                name="name"
+              />
               <input
                 type="submit"
                 className="py-2 font-bold rounded uppercase text-white shadow transition-colors hover:shadow-white bg-black w-full text-cener cursor-pointer"
