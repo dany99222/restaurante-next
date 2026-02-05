@@ -20,9 +20,10 @@ export default function ProductCard({ product }: ProductCardProps) {
           src={`/products/${product.image}.jpg`}
           alt={`Imagen platillo ${product.name}`}
           quality={75}
-          className="transition-transform duration-300 ease-out group-hover:scale-105"
+          className="w-full h-full object-cover object-center transition-transform duration-300 ease-out group-hover:scale-105"
         />
       </div>
+
       <div className="p-5 space-y-1">
         <h3 className="text-lg font-semibold text-neutral-900">
           {product.name}

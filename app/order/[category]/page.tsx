@@ -20,14 +20,13 @@ export default async function OrderPage({
 }) {
   const products = await getProducts(params.category);
 
+
   return (
     <>
-    <h1 className="my-5 text-3xl  font-bold">Productos</h1>
+      <h1 className="my-5 text-3xl  font-bold">Productos</h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 items-start">
-        {products.map(product =>(
-          <ProductCard 
-          key={product.id}
-          product={product} />
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </>
