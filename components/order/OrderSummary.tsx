@@ -6,6 +6,7 @@ import ProductDetails from "./ProductDetails";
 import { useMemo } from "react";
 import { formatCurrency } from "@/src/utils";
 import { createOrder } from "@/actions/create-order";
+import { OrderShema } from "@/src/schema";
 
 export default function OrderSummary() {
   const order = useStore((state) => state.order);
@@ -13,11 +14,17 @@ export default function OrderSummary() {
     () => order.reduce((total, item) => total + item.quantity * item.price, 0),
     [order],
   );
-  const handleCreateOrder = (formData : FormData) => {
-    //  De esta forma se toman los valores de un form 
-      // formData.get('name') 
-    console.log(formData.get('name'))
-    createOrder();
+  const handleCreateOrder = (formData: FormData) => {
+    //  De esta forma se toman los valores de un form
+    // formData.get('name')
+    const data = {
+      name: formData.get("name"),
+    };
+
+    const result = OrderShema.safeParse(data)
+    console.log(result)
+    return
+    createOrder()
   };
   return (
     <aside className="md:h-screen md:overflow-y-scroll md:w-64 lg:w-96 p5">
