@@ -1,5 +1,15 @@
-import {z} from 'zod'
+import { z } from "zod";
 
 export const OrderShema = z.object({
-    name: z.string().min(1, "Tu nombre Es Oblogatorio")
-})
+  name: z.string().min(1, "Tu nombre Es Oblogatorio"),
+  total: z.number().min(1, "Hay errores en la orden"),
+  order: z.array(
+    z.object({
+      id: z.number(),
+      name: z.string(),
+      price: z.number(),
+      quantity: z.number(),
+      subtotal: z.number(),
+    }),
+  ),
+});
