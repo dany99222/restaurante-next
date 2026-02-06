@@ -5,7 +5,7 @@ import { useStore } from "@/src/store/store";
 import ProductDetails from "./ProductDetails";
 import { useMemo } from "react";
 import { formatCurrency } from "@/src/utils";
-import { createOrder } from "@/actions/create-order";
+import { createOrder } from "@/actions/create-order-action";
 import { OrderShema } from "@/src/schema";
 import { toast } from "react-toastify";
 
@@ -15,21 +15,29 @@ export default function OrderSummary() {
     () => order.reduce((total, item) => total + item.quantity * item.price, 0),
     [order],
   );
-  const handleCreateOrder = (formData: FormData) => {
+  const handleCreateOrder = async (formData: FormData) => {
     //  De esta forma se toman los valores de un form
     // formData.get('name')
     const data = {
       name: formData.get("name"),
     };
 
-    const result = OrderShema.safeParse(data)
-    if(!result.success){
-      result.error.issues.forEach((issue)=>{
-        toast.error(issue.message)
-      })
+    // Validar en el cliente
+    const result = OrderShema.safeParse(data);
+    if (!result.success) {
+      result.error.issues.forEach((issue) => {
+        toast.error(issue.message);
+      });
+      return;
     }
-    return
-    createOrder()
+
+    // En caso de que haya errores regresa respuesta
+    const response = await createOrder(data);
+    if (response?.errors) {
+      response.errors.forEach((issue) => {
+        toast.error(issue.message);
+      });
+    }
   };
   return (
     <aside className="md:h-screen md:overflow-y-scroll md:w-64 lg:w-96 p5">
