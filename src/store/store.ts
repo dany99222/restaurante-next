@@ -8,11 +8,12 @@ interface Store {
   inceaseQuantity: (id: Product["id"]) => void;
   decreaseQuantity: (id: Product["id"]) => void;
   removeItem: (id: Product["id"]) => void;
+  clearOrder: () => void;
 }
 export const useStore = create<Store>((set, get) => ({
   order: [],
   AddToOrder: (product) => {
-    const { categoryId: _,  ...data } = product;
+    const { categoryId: _, ...data } = product;
 
     //Variable temporal donde agregarmos los productos
     let order: OrderItem[] = [];
@@ -77,9 +78,15 @@ export const useStore = create<Store>((set, get) => ({
       order: order,
     }));
   },
-  removeItem: (id)=>{
-    set((state)=> ({
-      order: state.order.filter(item => item.id !== id)
+  removeItem: (id) => {
+    set((state) => ({
+      order: state.order.filter((item) => item.id !== id),
+    }));
+  },
+
+  clearOrder: () =>{
+    set(()=>({
+      order: []
     }))
   }
 }));
