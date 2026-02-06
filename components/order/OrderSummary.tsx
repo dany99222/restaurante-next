@@ -26,7 +26,7 @@ export default function OrderSummary() {
 
     // Validar en el cliente
     const result = OrderShema.safeParse(data);
-    console.log(result)
+ 
     if (!result.success) {
       result.error.issues.forEach((issue) => {
         toast.error(issue.message);
