@@ -1,3 +1,4 @@
+import { completedOrder } from "@/actions/complete-order-action";
 import { OrderWhitProducts } from "@/src/types";
 import { formatCurrency } from "@/src/utils";
 import Image from "next/image";
@@ -7,6 +8,11 @@ type OrderCardProps = {
 };
 
 export default function OrderCard({ order }: OrderCardProps) {
+// Si el componente es de cliente el action se crea a parte 
+// Si el componente es de servidor se puede crear la funcion en su mismo archivo, aun asi se especifica en la funcion la directiva "use server", tambien se puede crear en un archivo externo
+
+
+
   return (
     <section
       aria-labelledby="summary-heading"
@@ -61,7 +67,7 @@ export default function OrderCard({ order }: OrderCardProps) {
         </div>
       </dl>
 
-      <form>
+      <form action={completedOrder}>
         <input
           type="submit"
           className="w-full mt-6 rounded-lg bg-blue-600 p-3 text-sm font-bold uppercase text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer"
