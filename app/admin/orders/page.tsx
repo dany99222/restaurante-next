@@ -3,7 +3,7 @@ import Heading from "@/components/ui/Heading";
 import prisma from "@/src/lib/prisma";
 import React from "react";
 
-async function getPendingOrders() {
+async function getProducts() {
   const orders = await prisma.order.findMany({
     where: {
       status: false,
@@ -20,8 +20,7 @@ async function getPendingOrders() {
 }
 
 export default async function OrdersPage() {
-  const orders = await getPendingOrders();
-  console.log(orders);
+  const orders = await getProducts();
   return (
     <>
       <Heading>Admistra Ordenes</Heading>
@@ -29,7 +28,7 @@ export default async function OrdersPage() {
       {orders.length ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 mt-5">
           {orders.map((order) => (
-            <OrderCard key={order.id}  order={order}/>
+            <OrderCard key={order.id} order={order} />
           ))}
         </div>
       ) : (

@@ -11,7 +11,7 @@ export default async function OrderSidebar() {
   //Hacemos la consulta de lo que nos queremos traer
   const categories = await getCategories();
 
-  console.log(categories);
+ 
 
   return (
     <aside className="md:w-72 md:h-screen bg-gray-100">
