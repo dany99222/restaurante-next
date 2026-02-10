@@ -13,3 +13,13 @@ export const OrderShema = z.object({
     }),
   ),
 });
+
+// Validamos el id 
+// Transformamos el id a entero 
+// Verificamos que el valor sea mayor a 0 
+export const OrderIdSchema = z.object({
+  orderId: z
+    .string()
+    .transform((value) => parseInt(value))
+    .refine((value) => value > 0, { message: "Hay Errores" }),
+});

@@ -68,6 +68,8 @@ export default function OrderCard({ order }: OrderCardProps) {
       </dl>
 
       <form action={completedOrder}>
+        {/* Input para mandar el id de la orden  */}
+        <input type="hidden" value={order.id} name="order_id" />
         <input
           type="submit"
           className="w-full mt-6 rounded-lg bg-blue-600 p-3 text-sm font-bold uppercase text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer"
