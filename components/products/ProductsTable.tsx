@@ -9,7 +9,7 @@ type ProductTableProps = {
 
 export default function ProductTable({ products }: ProductTableProps) {
   return (
-    <div className="px-4 sm:px-6 lg:px-8 mt-20">
+    <div className="px-4 sm:px-6 lg:px-8 mt-3">
       <div className="mt-8">
         <div className="overflow-x-auto shadow ring-1 ring-black ring-opacity-5 rounded-lg">
           <table className="min-w-full divide-y divide-gray-300">
