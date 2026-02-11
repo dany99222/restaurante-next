@@ -12,13 +12,14 @@ export default function ProductSearchForm() {
       search: formData.get("search"),
     };
     const result = SearchShema.safeParse(data);
+    
     if (!result.success) {
       result.error.issues.forEach((issue) => {
         toast.error(issue.message);
       });
       return;
     }
-    router.push("/admin/products/search?search=${result.data.search}");
+    router.push(`/admin/products/search?search=${result.data.search}`);
   };
 
   return (
