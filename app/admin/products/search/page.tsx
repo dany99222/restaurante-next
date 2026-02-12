@@ -3,6 +3,9 @@ import ProductTable from "@/components/products/ProductsTable";
 import Heading from "@/components/ui/Heading";
 import prisma from "@/src/lib/prisma";
 
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+
 async function searchProducts(searchTerm: string) {
   const products = await prisma.product.findMany({
     where: {
@@ -33,6 +36,13 @@ export default async function SearchPage({
         </span>{" "}
       </Heading>
       <div className="flex flex-col lg:flex-row lg:justify-around gap-5 lg:gap-0">
+        <Link
+          className="inline-flex max-w-60 items-center gap-2 px-4 py-2 bg-blue-600 rounded text-white hover:bg-blue-700 transition-colors"
+          href={"/admin/products"}
+        >
+          <ArrowLeftIcon className="w-5 h-5" />
+          <span >Volver a productos</span>
+        </Link>
         <ProductSearchForm />
       </div>
       {products.length === 0 ? (
@@ -41,7 +51,7 @@ export default async function SearchPage({
             No se encontraron productos
             {searchParams.search && (
               <span className="block font-semibold text-gray-900 mt-2">
-                 {`"${searchParams.search}"`} 
+                {`"${searchParams.search}"`}
               </span>
             )}
           </p>
