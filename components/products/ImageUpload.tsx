@@ -1,19 +1,23 @@
 "use client";
 import { CldUploadWidget } from "next-cloudinary";
+import Image from "next/image";
+import { useState } from "react";
 import { TbPhotoPlus } from "react-icons/tb";
 
 export default function ImageUpload() {
+  const [imageUrl, setImageUrl] = useState("");
+
   return (
     <CldUploadWidget
       uploadPreset="products_unsigned"
       options={{
-        maxFiles: 1
+        maxFiles: 1,
       }}
-      onUpload={(error, result) => {
-        if (error) {
-          console.error("Error uploading image:", error);
-        } else {
-          console.log("Image uploaded:", result);
+      onSuccess={(result, { widget }) => {
+        if (result.event === "success") {
+          widget.close();
+          // @ts-expect-error: property 'secure_url' does exist on 'info' property
+          setImageUrl(result.info?.secure_url);
         }
       }}
     >
@@ -45,10 +49,20 @@ export default function ImageUpload() {
                   Haz clic para subir o arrastra aquí
                 </p>
               </div>
-
+              {imageUrl && (
+                <div className="absolute inset-0 w-full h-full">
+                  <Image
+                    fill
+                    style={{ objectFit: "contain" }}
+                    src={imageUrl}
+                    alt="Imagen de Producto"
+                  />
+                </div>
+              )}
               <p className="text-xs text-gray-400">PNG, JPG, WEBP hasta 10MB</p>
             </div>
           </div>
+          <input type="hidden" name="image" value={imageUrl} />
         </div>
       )}
     </CldUploadWidget>
