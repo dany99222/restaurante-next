@@ -37,7 +37,7 @@ export const ProductSchema = z.object({
         .trim()
         .transform((value) => parseFloat(value)) 
         .refine((value) => value > 0, { message: 'Precio no válido' })
-        .or(z.number().min(1, {message: 'La Categoría es Obligatoria' })),
+        .or(z.number().min(1, {message: 'El precio debe ser mayor a 1' })),
     categoryId: z.string()
         .trim()
         .transform((value) => parseInt(value)) 

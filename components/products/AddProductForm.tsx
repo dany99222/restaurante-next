@@ -16,12 +16,14 @@ export default function AddProductForm({
     };
 
     const result = ProductSchema.safeParse(data);
+
     if (!result.success) {
       result.error.issues.forEach((issue) => {
         toast.error(issue.message);
       }); 
       return
     }
+    
   };
 
   return (
