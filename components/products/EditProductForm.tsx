@@ -45,7 +45,7 @@ export default function EditProductForm({
   };
 
   return (
-    <div className="bg-white mt-10 px-5 py-10 rounded shadow-lg max-w-3xl mx-auto">
+    <div className="bg-white mt-5 px-5 py-10 rounded-lg shadow-lg max-w-xl mx-auto">
       <form className="space-y-5" action={handleSubmit}>
         {children}
         <input
