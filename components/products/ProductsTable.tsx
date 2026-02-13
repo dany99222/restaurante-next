@@ -1,5 +1,5 @@
 import { ProductWhitCategory } from "@/app/admin/products/page";
-import { formatCurrency } from "@/src/utils";
+import { formatCurrency, getImagePath } from "@/src/utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -53,7 +53,7 @@ export default function ProductTable({ products }: ProductTableProps) {
                   <td className="py-4 pl-6 pr-3">
                     <div className="relative h-16 w-16 rounded-md overflow-hidden bg-gray-100">
                       <Image
-                        src={`/products/${product.image}.jpg`}
+                        src={getImagePath(product.image)}
                         alt={`Imagen del producto ${product.name}`}
                         fill
                         className="object-cover"

@@ -1,6 +1,6 @@
 import { completedOrder } from "@/actions/complete-order-action";
 import { OrderWhitProducts } from "@/src/types";
-import { formatCurrency } from "@/src/utils";
+import { formatCurrency, getImagePath } from "@/src/utils";
 import Image from "next/image";
 
 type OrderCardProps = {
@@ -50,7 +50,7 @@ export default function OrderCard({ order }: OrderCardProps) {
               <Image
                 className="rounded-sm object-cover"
                 fill
-                src={`/products/${product.product.image}.jpg`}
+                src={getImagePath(product.product.image)}
                 alt={`Imagen sobre ${product.product.name}`}
               />
             </div>
