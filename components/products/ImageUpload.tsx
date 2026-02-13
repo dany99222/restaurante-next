@@ -68,7 +68,7 @@ export default function ImageUpload({ image }: { image: string | undefined }) {
             <div className="space-y-3 flex items-center justify-around">
               <label className="text-gray-400"> Imagen Actual</label>
               <div className="relative w-52 h-52">
-                <Image className="rounded-lg shadow-lg" fill src={getImagePath(image)} alt="Imagen Producto" />
+                <Image className="rounded-lg shadow-lg" fill src={getImagePath(image)} alt="Imagen Producto" style={{objectFit: 'contain'}} />
               </div>
             </div>
           )}
