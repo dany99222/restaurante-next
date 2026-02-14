@@ -1,10 +1,12 @@
+
 import { ProductWhitCategory } from "@/app/admin/products/page";
 import { formatCurrency, getImagePath } from "@/src/utils";
 import Image from "next/image";
 import Link from "next/link";
+import DeleteProductModal from "./DeleteProductModal";
 
 type ProductTableProps = {
-  products: ProductWhitCategory
+  products: ProductWhitCategory;
 };
 
 export default function ProductTable({ products }: ProductTableProps) {
@@ -69,7 +71,7 @@ export default function ProductTable({ products }: ProductTableProps) {
                   <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                     {product.category.name}
                   </td>
-                  <td className="relative whitespace-nowrap py-4 pl-3 pr-6 text-right text-sm">
+                  <td className="relative whitespace-nowrap space-x-2  py-4 pl-3 pr-6 text-right text-sm">
                     <Link
                       className="inline-flex items-center gap-1 p-2 rounded text-white font-bold bg-blue-600 hover:bg-blue-800 transition-colors"
                       href={`/admin/products/${product.id}/edit`}
@@ -77,6 +79,10 @@ export default function ProductTable({ products }: ProductTableProps) {
                       Editar
                       <span className="sr-only">{product.name}</span>
                     </Link>
+                    <DeleteProductModal
+                      productId={product.id}
+                      productName={product.name}
+                    />
                   </td>
                 </tr>
               ))}

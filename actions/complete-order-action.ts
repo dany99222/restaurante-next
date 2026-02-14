@@ -22,7 +22,6 @@ export async function completedOrder(formData: FormData) {
         },
       });
 //Refresca la pantalla
-
       revalidatePath('/admin/orders')
     } catch (error) {
       console.log(error);

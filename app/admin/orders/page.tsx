@@ -34,7 +34,7 @@ export default async function OrdersPage() {
 
   return (
     <>
-      <Heading>Admistra Ordenes</Heading>
+      <Heading>Cocina</Heading>
       <form action={refreshOrders}>
         <input
           className="inline-flex max-w-60 items-center gap-2 px-4 py-2 bg-blue-600 rounded text-white hover:bg-blue-700 transition-colors"
