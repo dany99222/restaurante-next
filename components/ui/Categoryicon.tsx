@@ -17,7 +17,7 @@ export default function Categoryicon({ category }: CategoryiconProps) {
     >
       <div className="relative size-16 ">
         <Image
-          src={`/icon_${category.slug}.svg`}
+          src={`/icon_${category.slug}.png`}
           alt={`Imagen de la categoria: ${category.name}`}
           fill
           priority

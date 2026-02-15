@@ -1,5 +1,5 @@
 import { OrderItem } from "@/src/types";
-import { formatCurrency } from "@/src/utils";
+import { formatCurrency, getImagePath } from "@/src/utils";
 import { MinusIcon, PlusIcon, XCircleIcon } from "@heroicons/react/16/solid";
 import { useStore } from "@/src/store/store";
 import { useMemo } from "react";
@@ -32,7 +32,7 @@ export default function ProductDetails({ item }: ProductDetailProps) {
         {/* Imagen */}
         <div className="flex-shrink-0 w-24 h-24 rounded-lg overflow-hidden">
           <Image
-            src={`/products/${item.image}.jpg`}
+            src={getImagePath(item.image)}
             alt={`Platillo ${item.name}`}
             width={96}
             height={96}

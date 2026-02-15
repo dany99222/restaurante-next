@@ -1,136 +1,35 @@
 export const products = [
-    {
-        name: "Café Caramel con Chocolate",
-        price: 59.9,
-        image: "cafe_01",
-        categoryId: 1
-      },
-      {
-        name: "Café Frio con Chocolate Grande",
-        price: 49.9,
-        image: "cafe_02",
-        categoryId: 1
-      },
-      {
-        name: "Latte Frio con Chocolate Grande",
-        price: 54.9,
-        image: "cafe_03",
-        categoryId: 1
-      },
-      {
-        name: "Latte Frio con Chocolate Grande",
-        price: 54.9,
-        image: "cafe_04",
-        categoryId: 1
-      },
-      {
-        name: "Malteada Fria con Chocolate Grande",
-        price: 54.9,
-        image: "cafe_05",
-        categoryId: 1
-      },
-      {
-        name: "Café Mocha Caliente Chico",
-        price: 39.9,
-        image: "cafe_06",
-        categoryId: 1
-      },
-      {
-        name: "Café Mocha Caliente Grande con Chocolate",
-        price: 59.9,
-        image: "cafe_07",
-        categoryId: 1
-      },
-      {
-        name: "Café Caliente Capuchino Grande",
-        price: 59.9,
-        image: "cafe_08",
-        categoryId: 1
-      },
-      {
-        name: "Café Mocha Caliente Mediano",
-        price: 49.9,
-        image: "cafe_09",
-        categoryId: 1
-      },
-      {
-        name: "Café Mocha Frio con Caramelo Mediano",
-        price: 49.9,
-        image: "cafe_10",
-        categoryId: 1
-      },
-      {
-        name: "Café Mocha Frio con Chocolate Mediano",
-        price: 49.9,
-        image: "cafe_11",
-        categoryId: 1
-      },
-      {
-        name: "Café Espresso",
-        price: 29.9,
-        image: "cafe_12",
-        categoryId: 1
-      },
-      {
-        name: "Café Capuchino Grande con Caramelo",
-        price: 59.9,
-        image: "cafe_13",
-        categoryId: 1
-      },
-      {
-        name: "Café Caramelo Grande",
-        price: 59.9,
-        image: "cafe_14",
-        categoryId: 1
-      },
-     
-      {
-        name: "Hamburguesa Sencilla",
-        price: 59.9,
-        image: "hamburguesas_01",
-        categoryId: 2
-      },
-      {
-        name: "Hamburguesa de Pollo",
-        price: 59.9,
-        image: "hamburguesas_02",
-        categoryId: 2
-      },
-      {
-        name: "Hamburguesa de Pollo y Chili",
-        price: 59.9,
-        image: "hamburguesas_03",
-        categoryId: 2
-      },
-      {
-        name: "Hamburguesa Queso y  Pepinos",
-        price: 59.9,
-        image: "hamburguesas_04",
-        categoryId: 2
-      },
-      {
-        name: "Hamburguesa Cuarto de Libra",
-        price: 59.9,
-        image: "hamburguesas_05",
-        categoryId: 2
-      },
-      {
-        name: "Hamburguesa Doble Queso",
-        price: 69.9,
-        image: "hamburguesas_06",
-        categoryId: 2
-      },
-      {
-        name: "Hot Dog Especial",
-        price: 49.9,
-        image: "hamburguesas_07",
-        categoryId: 2
-      },
-      {
-        name: "Paquete 2 Hot Dogs",
-        price: 69.9,
-        image: "hamburguesas_08",
-        categoryId: 2
-      },
-     
-]
+
+  // ================= PIZZAS (5) =================
+  { name: "Pizza Pepperoni", price: 129.9, image: "pizza_01", categoryId: 2 },
+  { name: "Pizza Hawaiana", price: 139.9, image: "pizza_02", categoryId: 2 },
+  { name: "Pizza Suprema", price: 149.9, image: "pizza_03", categoryId: 2 },
+  { name: "Pizza Mexicana", price: 145.9, image: "pizza_04", categoryId: 2 },
+  { name: "Pizza Cuatro Quesos", price: 159.9, image: "pizza_05", categoryId: 2 },
+
+  // ================= HAMBURGUESAS (5) =================
+  { name: "Hamburguesa Clásica", price: 79.9, image: "hamburguesa_01", categoryId: 1 },
+  { name: "Hamburguesa BBQ", price: 89.9, image: "hamburguesa_02", categoryId: 1 },
+  { name: "Hamburguesa Doble Carne", price: 99.9, image: "hamburguesa_03", categoryId: 1 },
+  { name: "Hamburguesa Crispy Chicken", price: 85.9, image: "hamburguesa_04", categoryId: 1 },
+  { name: "Hamburguesa Especial de la Casa", price: 109.9, image: "hamburguesa_05", categoryId: 1 },
+
+  // ================= ENTRADAS (2) =================
+  { name: "Alitas BBQ", price: 99.9, image: "entrada_01", categoryId: 4 },
+  { name: "Aros de Cebolla", price: 79.9, image: "entrada_02", categoryId: 4 },
+
+  // ================= BEBIDAS (5) =================
+  { name: "Refresco 600ml", price: 29.9, image: "bebida_01", categoryId: 5 },
+  { name: "Agua Natural", price: 19.9, image: "bebida_02", categoryId: 5 },
+  { name: "Limonada", price: 34.9, image: "bebida_03", categoryId: 5 },
+  { name: "Malteada de Chocolate", price: 59.9, image: "bebida_04", categoryId: 5 },
+  { name: "Cerveza Nacional", price: 49.9, image: "bebida_05", categoryId: 5 },
+
+  // ================= PASTELES (5) =================
+  { name: "Pastel de Chocolate", price: 49.9, image: "pastel_01", categoryId: 3 },
+  { name: "Pastel de Tres Leches", price: 54.9, image: "pastel_02", categoryId: 3 },
+  { name: "Cheesecake de Fresa", price: 59.9, image: "pastel_03", categoryId: 3 },
+  { name: "Pastel Red Velvet", price: 64.9, image: "pastel_04", categoryId: 3 },
+  { name: "Pastel de Zanahoria", price: 52.9, image: "pastel_05", categoryId: 3 }
+
+];
