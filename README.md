@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍽️ Daniel's Restaurant — Food Kiosk
 
-## Getting Started
+A full stack restaurant management system with multiple views: a customer-facing kiosk for placing orders, a kitchen display to manage incoming orders in real time, and an admin panel for product and inventory management.
 
-First, run the development server:
+🔗 **Live Demo:** [restaurante-next-lac.vercel.app](https://restaurante-next-lac.vercel.app/admin/products)
+
+---
+
+## 📸 Screenshots
+
+### 🛒 Customer Kiosk
+Customers browse the menu by category, add items to their order, and confirm with their name.
+
+![Kiosk View](./screenshots/image-kiosk.png)
+
+### 🍳 Kitchen Display
+The kitchen sees incoming orders in real time and marks them as completed.
+
+![Kitchen View](./screenshots/image-listas.png)
+
+### ⚙️ Admin Panel
+Admins can create, edit, and delete products with images and categories.
+
+![Admin Panel](./screenshots/image-productos.png)
+
+---
+
+## 🚀 Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Database:** PostgreSQL + Prisma ORM
+- **State Management:** Zustand
+- **Data Fetching:** SWR
+- **Validation:** Zod
+- **Image Storage:** Cloudinary
+- **Styling:** Tailwind CSS
+- **Language:** TypeScript
+
+---
+
+## ✨ Features
+
+- 🗂️ Product catalog organized by categories
+- 🛒 Customer kiosk for self-service ordering
+- 🍳 Kitchen display with real-time order updates
+- ⚙️ Admin panel to create, edit, and delete products
+- ☁️ Image upload via Cloudinary
+- ✅ Server-side validation with Zod
+
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- PostgreSQL database
+- Cloudinary account
+
+### Installation
 
 ```bash
+# Clone the repo
+git clone https://github.com/dany99222/restaurante-next.git
+cd restaurante-next
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Fill in your DATABASE_URL and Cloudinary credentials
+
+# Run database migrations
+npx prisma migrate dev
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+DATABASE_URL=your_postgresql_connection_string
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+/actions        → Server actions (Next.js)
+/app            → Routes and pages
+/components     → Reusable UI components
+/prisma         → Database schema & migrations
+/public         → Static assets
+/src
+  /generated    → Prisma generated client
+  /lib          → Utilities and helpers
+  /schema       → Zod validation schemas
+  /store        → Zustand global state
+  /types        → TypeScript types
+  /utils        → Helper functions
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 👤 Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Luis Daniel Villalpando Hurtado**
+- GitHub: [@dany99222](https://github.com/dany99222)
+- LinkedIn: [luisdanielvillalpandohurtado](https://linkedin.com/in/luisdanielvillalpandohurtado/)
